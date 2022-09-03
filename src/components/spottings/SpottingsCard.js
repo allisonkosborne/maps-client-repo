@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Spottings.css";
 
-export const SpottingsCard = ({ spottings }) => {
+export const SpottingsCard = ({ spottings, locations }) => {
   return (
     <div className="spottings-card">
       {/* <Link to={`/spottings/${spottings.id}`}> */}
@@ -13,6 +13,7 @@ export const SpottingsCard = ({ spottings }) => {
       </div>
       <div className="card-info">
         <p className="spottings-card-time">{spottings.time}</p>
+        {/* <p className="spottings-card-location">{locations.name}</p> */}
         {/* <p className="spottings-card-food">{spottings.time}</p>
         <p className="spottings-card-food">{spottings.time}</p>
         <p className="spottings-card-food">{spottings.time}</p> */}

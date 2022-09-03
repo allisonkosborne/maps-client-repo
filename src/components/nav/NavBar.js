@@ -7,6 +7,11 @@ export const NavBar = () => {
   return (
     <div className="navbar">
       <div className="navbar__item">
+        <Link className="nav-link" to="/" id="middle">
+          Home
+        </Link>
+      </div>
+      <div className="navbar__item">
         <Link className="nav-link" to="/species" id="middle">
           Species
         </Link>
