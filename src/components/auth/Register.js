@@ -57,6 +57,10 @@ export const Register = () => {
       </dialog>
 
       <form className="form--login" onSubmit={handleRegister}>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+          rel="stylesheet"
+        ></link>
         <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
         <fieldset>
           <label htmlFor="firstName"> First Name </label>

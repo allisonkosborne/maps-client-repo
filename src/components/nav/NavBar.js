@@ -5,20 +5,24 @@ import "./NavBar.css";
 export const NavBar = () => {
   const history = useHistory();
   return (
-    <ul className="navbar">
-      <li className="navbar__item">
+    <div className="navbar">
+      <div className="navbar__item">
         <Link className="nav-link" to="/species" id="middle">
           Species
         </Link>
-      </li>
-      <li className="navbar__item" id="middle">
-        Navigation link
-      </li>
-      <li className="navbar__item" id="middle">
-        Navigation link
-      </li>
+      </div>
+      <div className="navbar__item">
+        <Link className="nav-link" to="/spottings" id="middle">
+          Spottings
+        </Link>
+      </div>
+      <div className="navbar__item">
+        <Link className="nav-link" to="/locations" id="middle">
+          Locations
+        </Link>
+      </div>
       {localStorage.getItem("lu_token") !== null ? (
-        <li className="nav-item" id="middle">
+        <div className="nav-item" id="middle">
           <button
             className="nav-link fakeLink"
             onClick={() => {
@@ -28,21 +32,21 @@ export const NavBar = () => {
           >
             Logout
           </button>
-        </li>
+        </div>
       ) : (
         <>
-          <li className="nav-item">
+          <div className="nav-item">
             <Link className="nav-link" to="/login">
               Login
             </Link>
-          </li>
-          <li className="nav-item">
+          </div>
+          <div className="nav-item">
             <Link className="nav-link" to="/register">
               Register
             </Link>
-          </li>
+          </div>
         </>
       )}{" "}
-    </ul>
+    </div>
   );
 };
