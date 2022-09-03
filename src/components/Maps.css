@@ -1,4 +1,17 @@
-.App {
+body,
+html {
+  background-image: url("/public/Untitled\ design\ \(1\).png");
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+}
+
+.front-paragraph {
+  font-size: 50rem;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +48,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

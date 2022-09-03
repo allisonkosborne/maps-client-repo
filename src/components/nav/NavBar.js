@@ -7,14 +7,18 @@ export const NavBar = () => {
   return (
     <ul className="navbar">
       <li className="navbar__item">
-        <Link className="nav-link" to="/species">
+        <Link className="nav-link" to="/species" id="middle">
           Species
         </Link>
       </li>
-      <li className="navbar__item">Navigation link</li>
-      <li className="navbar__item">Navigation link</li>
+      <li className="navbar__item" id="middle">
+        Navigation link
+      </li>
+      <li className="navbar__item" id="middle">
+        Navigation link
+      </li>
       {localStorage.getItem("lu_token") !== null ? (
-        <li className="nav-item">
+        <li className="nav-item" id="middle">
           <button
             className="nav-link fakeLink"
             onClick={() => {

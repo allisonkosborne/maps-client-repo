@@ -1,12 +1,12 @@
-.species-card {
-  width: 300px;
+/* .species-card {
+  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0 40px 40px 40px;
-}
-
+} */
+/* 
 .species-card-img-wrapper {
   display: flex;
   flex-direction: column;
@@ -15,10 +15,26 @@
   text-align: center;
   width: 300px;
   flex-wrap: wrap;
-}
+} */
 
-.species-card-img {
+/* .species-card-img {
   flex-shrink: 0;
   max-width: 100%;
   max-height: 100%;
+} */
+h3 {
+  font-size: 38px;
+  /* font-family: ; */
+  color: rgb(39, 24, 2);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.species-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

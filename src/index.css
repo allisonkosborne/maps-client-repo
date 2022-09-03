@@ -1,18 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 /*Typography
 --------------------------------------------------------------*/
 
 body,
 button,
 input,
-select,
-textarea {
+select {
   color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
-  font-size: 1rem;
+  font-family: "Creepster", cursive;
+  font-size: 1.5rem;
   line-height: 1.5;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 h1,
@@ -21,7 +21,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Patua One", serif;
+  font-family: "Creepster", cursive;
   letter-spacing: 2px;
 }
 
@@ -31,9 +31,9 @@ code {
 }
 
 .fakeLink {
-  color: -webkit-link;
+  color: limegreen;
   cursor: pointer;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   background: none !important;
   border: none;
   cursor: pointer;
@@ -50,7 +50,7 @@ code {
 /* General button style */
 .btn {
   border: none;
-  font-family: Menlo;
+  font-family: "Creepster", cursive;
   font-size: inherit;
   color: inherit;
   background: none;

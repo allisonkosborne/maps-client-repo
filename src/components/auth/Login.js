@@ -46,7 +46,7 @@ export const Login = () => {
       </dialog>
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1>Level Up</h1>
+          <h1>Monster Amplitude + Paranormal Spectrums</h1>
           <h2>Please sign in</h2>
           <fieldset>
             <label htmlFor="inputUsername"> Username address </label>
