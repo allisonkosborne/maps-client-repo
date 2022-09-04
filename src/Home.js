@@ -30,6 +30,10 @@ export const Home = () => {
           <button class="front-button" id="let-us-know">
             Let Us Know!
           </button>
+          <div class="photo line">
+            <img src={window.location.origin + "public/favicon.ico"} />
+            {/* <img src="public/favicon.ico" alt="icon" /> */}
+          </div>
           <h5>***** Help us protect our local monsters! ****</h5>
         </div>
         <p>{/* <PropsAndState yourName={users.name} /> */}</p>

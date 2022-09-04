@@ -26,7 +26,7 @@ export const SpottingsList = () => {
         <button
           className="btn"
           onClick={() => {
-            history.push({ pathname: "/spottings/new" });
+            history.push({ pathname: "/spottings/create" });
           }}
         >
           Add Spottings

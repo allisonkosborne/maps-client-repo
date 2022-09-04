@@ -7,21 +7,25 @@ export const NavBar = () => {
   return (
     <div className="navbar">
       <div className="navbar__item">
+        <img src="favicon.ico"></img>
         <Link className="nav-link" to="/" id="middle">
           Home
         </Link>
       </div>
       <div className="navbar__item">
+        <img src="tentacles.ico"></img>
         <Link className="nav-link" to="/species" id="middle">
           Species
         </Link>
       </div>
       <div className="navbar__item">
+        <img src="maps.ico"></img>
         <Link className="nav-link" to="/spottings" id="middle">
           Spottings
         </Link>
       </div>
       <div className="navbar__item">
+        <img src="planets.ico"></img>
         <Link className="nav-link" to="/locations" id="middle">
           Locations
         </Link>

@@ -7,6 +7,7 @@ import { SpottingsDetails } from "./spottings/SpottingsDetails";
 import { LocationsDetails } from "./locations/LocationsDetails";
 import { LocationsList } from "./locations/LocationsList";
 import { Home } from "../Home";
+import { SpeciesForm } from "./species/SpeciesForm";
 
 export const ApplicationViews = () => {
   return (
@@ -17,20 +18,23 @@ export const ApplicationViews = () => {
       <Route exact path="/species">
         <SpeciesList />
       </Route>
-      <Route exact path="/species/:speciesId">
+      {/* <Route exact path="/species/:speciesId">
         <SpeciesDetails />
       </Route>
       <Route exact path="/spottings/:spottingsId">
         <SpottingsDetails />
-      </Route>
+      </Route> */}
       <Route exact path="/spottings">
         <SpottingsList />
       </Route>
       <Route exact path="/locations">
         <LocationsList />
       </Route>
-      <Route exact path="/locations/:locationsId">
+      {/* <Route exact path="/locations/:locationsId">
         <LocationsDetails />
+      </Route> */}
+      <Route exact path="/species/create">
+        <SpeciesForm />
       </Route>
     </>
   );

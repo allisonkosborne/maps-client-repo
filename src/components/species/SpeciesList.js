@@ -26,7 +26,7 @@ export const SpeciesList = () => {
         <button
           className="btn"
           onClick={() => {
-            history.push({ pathname: "/species/new" });
+            history.push({ pathname: "/species/create" });
           }}
         >
           Add Species
