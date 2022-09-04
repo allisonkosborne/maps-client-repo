@@ -1,8 +1,104 @@
-h1 {
+.welcome {
   font-family: "Creepster", cursive;
-  font-size: 50px;
+  font-size: 125px;
+}
+
+button {
+  text-align: center;
 }
 
 h2 {
   font-family: "Creepster", cursive;
+  font-size: 35px;
+  text-align: center;
+}
+
+h5 {
+  font-family: "Creepster", cursive;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: rgb(170, 255, 174);
+  text-align: center;
+  font-size: 30px;
+  border-style: solid;
+  border-radius: 15px;
+  /* transform: translate(-50%, -50%); */
+  position: absolute;
+  animation: animate 2.5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Creepster", cursive;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.wrapper {
+  box-sizing: content-box;
+  height: 38px;
+  padding: 25px 50px;
+  display: flex;
+  box-shadow: 0 20px 25px rgb(67, 35, 6);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+}
+
+.words {
+  overflow: hidden;
+}
+
+span {
+  display: block;
+  height: 150%;
+  padding-left: 10px;
+  color: rgb(144, 8, 8);
+  animation: spin_words 6s infinite;
+}
+
+@keyframes spin_words {
+  10% {
+    transform: translateY(-112%);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  35% {
+    transform: translateY(-212%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  60% {
+    transform: translateY(-312%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  85% {
+    transform: translateY(-412%);
+  }
+  100% {
+    transform: translateY(-400%);
+  }
 }
