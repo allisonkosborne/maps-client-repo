@@ -24,7 +24,7 @@ export const SpottingsList = () => {
       </div>
       <div className="center">
         <button
-          className="btn"
+          className="create-spottings"
           onClick={() => {
             history.push({ pathname: "/spottings/create" });
           }}
@@ -32,6 +32,9 @@ export const SpottingsList = () => {
           Add Spottings
         </button>
       </div>
+      {/* <div class="protect">
+        <h5>***** Help us protect our local monsters! ****</h5>
+      </div> */}
     </>
   );
 };

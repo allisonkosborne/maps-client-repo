@@ -32,6 +32,7 @@ h3 {
   justify-content: center;
   align-items: center;
   font-family: "Creepster", cursive;
+  text-shadow: 2px 2px wheat;
 }
 
 .species-card {
@@ -57,4 +58,24 @@ h5 {
   /* transform: translate(-50%, -50%); */
   position: absolute;
   animation: animate 2.5s linear infinite;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.form-group {
+  /* display: flex;
+  justify-content: left;
+  align-items: center; */
+  /* padding-top: 25px; */
+}
+
+.species-name,
+.species-food {
+  font-size: 24px;
+  font-family: "Quicksand", sans-serif;
 }

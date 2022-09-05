@@ -8,6 +8,8 @@ import { LocationsDetails } from "./locations/LocationsDetails";
 import { LocationsList } from "./locations/LocationsList";
 import { Home } from "../Home";
 import { SpeciesForm } from "./species/SpeciesForm";
+import { LocationsForm } from "./locations/LocationsForm";
+import { SpottingsForm } from "./spottings/SpottingsForm";
 
 export const ApplicationViews = () => {
   return (
@@ -35,6 +37,12 @@ export const ApplicationViews = () => {
       </Route> */}
       <Route exact path="/species/create">
         <SpeciesForm />
+      </Route>
+      <Route exact path="/locations/create">
+        <LocationsForm />
+      </Route>
+      <Route exact path="/spottings/create">
+        <SpottingsForm />
       </Route>
     </>
   );

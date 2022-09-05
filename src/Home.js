@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
+import { Link } from "react-router-dom";
 
-export const Home = () => {
+export const Home = (spotting) => {
   return (
     <>
       <link
@@ -29,9 +30,11 @@ export const Home = () => {
             <h2 className="welcoming-saying">around your neighborhood?</h2>
           </div>
           <div class="button-div">
-            <button class="front-button" id="let-us-know">
-              Let Us Know!
-            </button>
+            <Link to={`/spottings/create`}>
+              <button class="front-button" id="let-us-know">
+                Let Us Know!
+              </button>
+            </Link>
           </div>
           <div class="photo line">
             <img src={window.location.origin + "public/favicon.ico"} />

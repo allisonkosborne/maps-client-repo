@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
 h3 {
   font-size: 38px;
@@ -9,6 +10,7 @@ h3 {
   justify-content: center;
   align-items: center;
   font-family: "Creepster", cursive;
+  text-shadow: 2px 2px wheat;
 }
 
 .species-card {
@@ -17,4 +19,31 @@ h3 {
   justify-content: center;
   align-items: center;
   font-family: "Creepster", cursive;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.create-spottings {
+  color: rgb(249, 246, 246);
+  background-color: rgb(119, 15, 142);
+  font-family: "Creepster", cursive;
+  border-radius: 65px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  padding: 18px;
+  text-shadow: 3px 3px rgb(74, 244, 88);
+}
+
+.spottings {
+  font-size: 24px;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
 }

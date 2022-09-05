@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { createSpecies } from "./SpeciesManager.js";
-import "./SpeciesForm.css";
+import { createLocations } from "./LocationsManager.js";
+import "./LocationsForm.css";
 
-export const SpeciesForm = () => {
+export const LocationsForm = () => {
   const history = useHistory();
   // const [gameTypes, setGameTypes] = useState([]);
 
@@ -12,48 +12,44 @@ export const SpeciesForm = () => {
         the properties of this state variable, you need to
         provide some default values.
     */
-  const [currentSpecies, setCurrentSpecies] = useState({
+  const [currentLocation, setCurrentLocation] = useState({
     id: 1,
     name: "",
-    food: "",
+    // food: "",
   });
 
   // useEffect(() => {
   //   getGameTypes().then((data) => setGameTypes(data));
   // }, []);
 
-  const changeSpeciesState = (domEvent) => {
-    let newSpecies = { ...currentSpecies };
+  const changeLocationState = (domEvent) => {
+    let newLocation = { ...currentLocation };
     let newValue = domEvent.target.value;
-    newSpecies[domEvent.target.name] = newValue;
-    setCurrentSpecies(newSpecies);
+    newLocation[domEvent.target.name] = newValue;
+    setCurrentLocation(newLocation);
   };
 
   return (
-    <form className="speciesForm">
-      <h2 className="speciesForm__title">Register New Species</h2>
+    <form className="locationForm">
+      <h2 className="locationForm__title">Register New Location</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name" className="species-name">
-            Name:{" "}
-          </label>
+          <label htmlFor="name">Name: </label>
           <input
             type="text"
             name="name"
             required
             autoFocus
             className="form-control"
-            value={currentSpecies.name}
-            onChange={changeSpeciesState}
+            value={currentLocation.name}
+            onChange={changeLocationState}
           />
         </div>
       </fieldset>
 
-      <fieldset>
+      {/* <fieldset>
         <div className="form-group">
-          <label htmlFor="food" className="species-food">
-            Favorite Food:{" "}
-          </label>
+          <label htmlFor="food">Favorite Food: </label>
           <input
             type="text"
             name="food"
@@ -64,7 +60,7 @@ export const SpeciesForm = () => {
             onChange={changeSpeciesState}
           />
         </div>
-      </fieldset>
+      </fieldset> */}
       <div className="button-div">
         <button
           type="submit"
@@ -72,15 +68,15 @@ export const SpeciesForm = () => {
             // Prevent form from being submitted
             evt.preventDefault();
 
-            const species = {
-              name: currentSpecies.name,
-              food: currentSpecies.food,
+            const location = {
+              name: currentLocation.name,
+              // food: currentSpecies.food,
             };
 
             // Send POST request to your API
-            createSpecies(species).then(() => history.push("/species"));
+            createLocations(location).then(() => history.push("/locations"));
           }}
-          className="create-species"
+          className="create-locations"
         >
           Create
         </button>

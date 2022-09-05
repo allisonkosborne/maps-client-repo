@@ -24,7 +24,7 @@ export const SpeciesList = () => {
       </div>
       <div className="center">
         <button
-          className="btn"
+          className="create-species"
           onClick={() => {
             history.push({ pathname: "/species/create" });
           }}

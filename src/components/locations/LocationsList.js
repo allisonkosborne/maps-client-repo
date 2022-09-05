@@ -24,7 +24,7 @@ export const LocationsList = () => {
       </div>
       <div className="center">
         <button
-          className="btn"
+          className="create-locations"
           onClick={() => {
             history.push({ pathname: "/locations/create" });
           }}

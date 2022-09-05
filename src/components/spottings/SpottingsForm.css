@@ -1,4 +1,4 @@
-.create-species {
+.create-spottings {
   color: rgb(249, 246, 246);
   background-color: rgb(119, 15, 142);
   font-family: "Creepster", cursive;
@@ -17,8 +17,4 @@
   justify-content: center;
   align-items: center;
   padding-top: 25px;
-}
-
-.name {
-  font-family: "Creepster", cursive;
 }

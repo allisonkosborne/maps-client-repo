@@ -5,3 +5,14 @@ export const getSpottings = () => {
     },
   }).then((response) => response.json());
 };
+
+export const createSpottings = (spotting) => {
+  return fetch("http://localhost:8000/spottings", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("lu_token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(spotting),
+  }).then((res) => res.json());
+};
