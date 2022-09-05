@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 /* .species-card {
   width: 200px;
   display: flex;
@@ -30,6 +31,7 @@ h3 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: "Creepster", cursive;
 }
 
 .species-card {
@@ -37,4 +39,22 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Creepster", cursive;
+}
+
+h5 {
+  font-family: "Creepster", cursive;
+  position: fixed;
+  z-index: 100;
+  bottom: 2;
+  left: 0;
+  width: 100%;
+  color: rgb(170, 255, 174);
+  text-align: center;
+  font-size: 35px;
+  border-style: solid;
+  border-radius: 15px;
+  /* transform: translate(-50%, -50%); */
+  position: absolute;
+  animation: animate 2.5s linear infinite;
 }

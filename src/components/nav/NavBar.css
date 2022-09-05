@@ -2,13 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-shadow: 2px 2px #0f0800;
 }
 
 .navbar__item {
   /* flex-basis: 20%; */
   list-style-type: none;
   text-align: right;
-  font-size: 24px;
+  font-size: 42px;
   font-family: "Creepster", cursive;
 }
 

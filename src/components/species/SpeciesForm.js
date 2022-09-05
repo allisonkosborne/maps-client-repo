@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { createSpecies } from "./SpeciesManager.js";
+import "./SpeciesForm.css";
 
 export const SpeciesForm = () => {
   const history = useHistory();
@@ -48,7 +49,7 @@ export const SpeciesForm = () => {
 
       <fieldset>
         <div className="form-group">
-          <label htmlFor="food">food: </label>
+          <label htmlFor="food">Favorite Food: </label>
           <input
             type="text"
             name="food"

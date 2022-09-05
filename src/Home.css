@@ -1,6 +1,18 @@
 .welcome {
   font-family: "Creepster", cursive;
-  font-size: 165px;
+  font-size: 120px;
+  padding: 0.5;
+  margin: 2rem;
+  color: rgb(24, 13, 1);
+  text-shadow: 3px 5px #ffd7a9;
+}
+
+.welcoming-saying {
+  font-family: "Creepster", cursive;
+  font-size: 47px;
+  text-align: center;
+  margin: 2rem;
+  text-shadow: 3px 4px #ffd19d;
 }
 
 button {
@@ -13,11 +25,20 @@ h2 {
   text-align: center;
 }
 
+.intro-saying {
+  font-family: "Creepster", cursive;
+  font-size: 35px;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 5.5rem;
+  text-shadow: 2px 3px rgb(255, 178, 178);
+}
+
 h5 {
   font-family: "Creepster", cursive;
   position: fixed;
   z-index: 100;
-  bottom: 0;
+  bottom: 2;
   left: 0;
   width: 100%;
   color: rgb(170, 255, 174);
@@ -42,9 +63,7 @@ h5 {
   }
 }
 
-*,
-*:before,
-*:after {
+.wrapper ::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -53,13 +72,22 @@ h5 {
   font-weight: 500;
 }
 
+.wrapper ::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Creepster", cursive;
+  font-size: 45px;
+  font-weight: 600;
+}
+
 .wrapper {
   box-sizing: content-box;
-  height: 38px;
-  padding: 25px 50px;
+  height: 68px;
+  padding: 1px 20px 25px 20px;
   display: flex;
   box-shadow: 0 20px 25px rgb(67, 35, 6);
-  border-radius: 10px;
+  border-radius: 65px;
   text-align: center;
   justify-content: center;
 }
@@ -70,10 +98,16 @@ h5 {
 
 span {
   display: block;
-  height: 150%;
-  padding-left: 10px;
+  height: 135%;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 35px;
+  padding-bottom: 20px;
   color: rgb(144, 8, 8);
   animation: spin_words 6s infinite;
+  font-family: "Creepster", cursive;
+  font-size: 42px;
+  text-shadow: 2px 2px #774001;
 }
 
 @keyframes spin_words {
@@ -102,3 +136,28 @@ span {
     transform: translateY(-400%);
   }
 }
+
+#let-us-know {
+  color: rgb(249, 246, 246);
+  background-color: rgb(119, 15, 142);
+  font-family: "Creepster", cursive;
+  border-radius: 65px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  padding: 18px;
+  text-shadow: 3px 3px rgb(74, 244, 88);
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+
+/* .protect {
+  margin: 10rem;
+} */

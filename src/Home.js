@@ -15,50 +15,33 @@ export const Home = () => {
         </style>
         <div className="home-page">
           {/* <img src={"/image1.jpg"} alt="Flowers" /> */}
-          <h1 className="welcome">MAPS</h1>
+          <h1 className="welcome">M.A.P.S.</h1>
+          <h2 class="intro-saying">Monster Amplitude & Paranormal Spectrums</h2>
           <div class="wrapper">
             <h2 className="welcoming-saying">Who have you seen </h2>
             <div class="words">
               <span>creeping</span>
               <span>flying</span>
               <span>crawling</span>
-              <span>slithering</span>
+              <span>slithering </span>
               <span>creeping</span>
             </div>
-            <h2>around your neighborhood?</h2>
+            <h2 className="welcoming-saying">around your neighborhood?</h2>
           </div>
-          <button class="front-button" id="let-us-know">
-            Let Us Know!
-          </button>
+          <div class="button-div">
+            <button class="front-button" id="let-us-know">
+              Let Us Know!
+            </button>
+          </div>
           <div class="photo line">
             <img src={window.location.origin + "public/favicon.ico"} />
             {/* <img src="public/favicon.ico" alt="icon" /> */}
           </div>
-          <h5>***** Help us protect our local monsters! ****</h5>
         </div>
         <p>{/* <PropsAndState yourName={users.name} /> */}</p>
-
-        <div className="first-paragraph">
-          <small>
-            {/* "Seeds are everywhere yet nobody thinks of them, tiny bundles
-            waiting to be opened. Most any seed is small enough to hide in a
-            locket, and some are so small they get latched between two teeth.
-            They are on our forks, between our cracks of sidewalks and
-            cobblestones of streets, under trees, on trees, in the produce
-            section of the supermarket. They are in the wind, rolling along the
-            desert, in our hair, in the fur of animals, in our dogs' feet." -
-            Janisse Ray */}
-          </small>
+        <div class="protect">
+          <h5>***** Help us protect our local monsters! ****</h5>
         </div>
-
-        {/* <div className="second-paragraph">
-        Now is not the time to be silent. To remain stagnant. Now is the time to
-        take our health, the health of our communities back into our sOWN hands.
-        Our future, the future of our food, a sustenance that we each partake in
-        each and every day is in danger and it is up to us to change that. With
-        each seed sown, a future is forseen. A hope is dug. And a life is
-        changed.
-      </div> */}
       </div>
     </>
   );
