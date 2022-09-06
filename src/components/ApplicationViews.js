@@ -11,6 +11,7 @@ import { SpeciesForm } from "./species/SpeciesForm";
 import { SpeciesEditForm } from "./species/SpeciesEditForm";
 import { LocationsForm } from "./locations/LocationsForm";
 import { SpottingsForm } from "./spottings/SpottingsForm";
+import { SpottingsEditForm } from "./species/SpeciesEditForm";
 
 export const ApplicationViews = () => {
   return (
@@ -26,6 +27,9 @@ export const ApplicationViews = () => {
       </Route>
       <Route exact path="/species/:speciesId/edit">
         <SpeciesEditForm />
+      </Route>
+      <Route exact path="/spottings/:spottingsId/edit">
+        <SpottingsEditForm />
       </Route>
       <Route exact path="/spottings/:spottingsId">
         <SpottingsDetails />

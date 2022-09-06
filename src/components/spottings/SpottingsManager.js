@@ -24,3 +24,14 @@ export const getSpottingsById = (spottingsId) => {
     },
   }).then((res) => res.json());
 };
+
+const updateSpottings = (id, spottings) => {
+  return fetch(`http://localhost:8000/spottings/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("lu_token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(spottings),
+  });
+};
