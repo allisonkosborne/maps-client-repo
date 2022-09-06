@@ -5,9 +5,9 @@ import "./Spottings.css";
 export const SpottingsCard = ({ spottings, locations }) => {
   return (
     <div className="spottings-card">
-      {/* <Link to={`/spottings/${spottings.id}`}> */}
-      <h3>Monster Spotting</h3>
-      {/* </Link> */}
+      <Link to={`/spottings/${spottings.id}`}>
+        <h3>Monster Spotting</h3>
+      </Link>
       <div className="spottings-card-img-wrapper">
         {/* <img className="species-card-img" src={species.img_url} /> */}
       </div>

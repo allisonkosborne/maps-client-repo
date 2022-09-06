@@ -8,6 +8,7 @@ import { LocationsDetails } from "./locations/LocationsDetails";
 import { LocationsList } from "./locations/LocationsList";
 import { Home } from "../Home";
 import { SpeciesForm } from "./species/SpeciesForm";
+import { SpeciesEditForm } from "./species/SpeciesEditForm";
 import { LocationsForm } from "./locations/LocationsForm";
 import { SpottingsForm } from "./spottings/SpottingsForm";
 
@@ -20,21 +21,24 @@ export const ApplicationViews = () => {
       <Route exact path="/species">
         <SpeciesList />
       </Route>
-      {/* <Route exact path="/species/:speciesId">
+      <Route exact path="/species/:speciesId">
         <SpeciesDetails />
+      </Route>
+      <Route exact path="/species/:speciesId/edit">
+        <SpeciesEditForm />
       </Route>
       <Route exact path="/spottings/:spottingsId">
         <SpottingsDetails />
-      </Route> */}
+      </Route>
       <Route exact path="/spottings">
         <SpottingsList />
       </Route>
       <Route exact path="/locations">
         <LocationsList />
       </Route>
-      {/* <Route exact path="/locations/:locationsId">
+      <Route exact path="/locations/:locationsId">
         <LocationsDetails />
-      </Route> */}
+      </Route>
       <Route exact path="/species/create">
         <SpeciesForm />
       </Route>
