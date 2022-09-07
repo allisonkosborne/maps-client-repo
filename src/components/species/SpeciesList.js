@@ -5,6 +5,43 @@ import { SpeciesCard } from "./SpeciesCard.js";
 import "./Species.css";
 import "../Maps.css";
 
+// export const SpeciesList = (props) => {
+//   const history = useHistory();
+//   const [species, setSpecies] = useState([]);
+
+//   useEffect(() => {
+//     getSpecies().then((data) => setSpecies(data));
+//   }, []);
+
+//   return (
+//     <>
+//       <header>
+//         <button
+//           className="btn btn-2 btn-sep icon-create"
+//           onClick={() => {
+//             history.push({ pathname: "/species/create" });
+//           }}
+//         >
+//           Register New Species
+//         </button>
+//       </header>
+//       <article className="games">
+//         {species.map((species) => {
+//           return (
+//             <section key={`game--${species.id}`} className="species">
+//               <div className="game__title">Name: {species.name}</div>
+//               <div className="game__players">
+//                 Favorite Food: {species.food}{" "}
+//               </div>
+//               {/* <div className="game__skillLevel">Skill level is {game.skill_level}</div> */}
+//             </section>
+//           );
+//         })}
+//       </article>
+//     </>
+//   );
+// };
+
 export const SpeciesList = () => {
   const history = useHistory();
   const [species, setSpecies] = useState([]);
