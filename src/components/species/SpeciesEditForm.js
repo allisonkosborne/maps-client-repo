@@ -99,7 +99,7 @@ export const SpeciesEditForm = (species) => {
           }}
           className="create-species"
         >
-          Create
+          Save
         </button>
       </div>
     </form>

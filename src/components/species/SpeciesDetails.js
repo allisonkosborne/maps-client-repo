@@ -44,7 +44,7 @@ export const SpeciesDetails = (handleDeleteSpecies) => {
           <button type="button" onClick={() => handleDeleteSpecies(species.id)}>
             Delete
           </button>
-          <Link to={`/seeds/${species.id}/edit`}>
+          <Link to={`/species/${species.id}/edit`}>
             <button>Edit</button>
           </Link>
         </div>
