@@ -6,15 +6,15 @@ export const getSpecies = () => {
   }).then((response) => response.json());
 };
 
-export const createSpecies = (species) => {
-  return fetch("http://localhost:8000/species/create", {
+export const createSpecies = (newspecies) => {
+  return fetch("http://localhost:8000/species", {
     method: "POST",
     headers: {
       Authorization: `Token ${localStorage.getItem("lu_token")}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(species),
-  }).then((res) => res.json());
+    body: JSON.stringify(newspecies),
+  }).then(getSpecies);
 };
 
 export const getSpeciesById = (speciesId) => {
