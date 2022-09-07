@@ -11,7 +11,7 @@ import { SpeciesForm } from "./species/SpeciesForm";
 import { SpeciesEditForm } from "./species/SpeciesEditForm";
 import { LocationsForm } from "./locations/LocationsForm";
 import { SpottingsForm } from "./spottings/SpottingsForm";
-import { SpottingsEditForm } from "./species/SpeciesEditForm";
+import { SpottingsEditForm } from "./species/SpottingsEditForm"; //
 
 export const ApplicationViews = () => {
   return (
