@@ -25,7 +25,7 @@ export const getSpeciesById = (id) => {
   }).then((res) => res.json());
 };
 
-const updateSpecies = (id, species) => {
+export const updateSpecies = (id, species) => {
   return fetch(`http://localhost:8000/species/${id}`, {
     method: "PUT",
     headers: {

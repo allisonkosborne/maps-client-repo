@@ -7,7 +7,7 @@ export const getSpottings = () => {
 };
 
 export const createSpottings = (spotting) => {
-  return fetch("http://localhost:8000/spottings/create", {
+  return fetch("http://localhost:8000/spottings/new", {
     method: "POST",
     headers: {
       Authorization: `Token ${localStorage.getItem("lu_token")}`,

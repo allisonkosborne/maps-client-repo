@@ -26,7 +26,7 @@ export const MusersList = () => {
         <button
           className="btn"
           onClick={() => {
-            history.push({ pathname: "/users/create" });
+            history.push({ pathname: "/users/new" });
           }}
         >
           Add User

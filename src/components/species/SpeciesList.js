@@ -19,7 +19,7 @@ import "../Maps.css";
 //         <button
 //           className="btn btn-2 btn-sep icon-create"
 //           onClick={() => {
-//             history.push({ pathname: "/species/create" });
+//             history.push({ pathname: "/species/new" });
 //           }}
 //         >
 //           Register New Species
@@ -63,7 +63,7 @@ export const SpeciesList = () => {
         <button
           className="create-species"
           onClick={() => {
-            history.push({ pathname: "/species/create" });
+            history.push({ pathname: "/species/new" });
           }}
         >
           Add Species

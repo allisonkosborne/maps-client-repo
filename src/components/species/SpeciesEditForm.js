@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { createSpecies, getSpeciesById } from "./SpeciesManager.js";
+import {
+  createSpecies,
+  getSpeciesById,
+  updateSpecies,
+} from "./SpeciesManager.js";
 import "./SpeciesForm.css";
 
 export const SpeciesEditForm = (species) => {
@@ -16,6 +20,7 @@ export const SpeciesEditForm = (species) => {
     name: "",
     food: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const { speciesId } = useParams();
   const history = useHistory();
@@ -36,7 +41,7 @@ export const SpeciesEditForm = (species) => {
       food: species.food,
     };
 
-    updateExistingSpecies(editedSpecies).then(() => history("/species"));
+    updateSpecies(editedSpecies).then(() => history("/species"));
   };
 
   useEffect(() => {
@@ -84,6 +89,14 @@ export const SpeciesEditForm = (species) => {
       </fieldset>
       <div className="button-div">
         <button
+          type="button"
+          disabled={isLoading}
+          onClick={updateExistingSpecies}
+          className="btn btn-primary"
+        >
+          Save
+        </button>
+        {/* <button
           type="submit"
           onClick={(evt) => {
             // Prevent form from being submitted
@@ -100,7 +113,7 @@ export const SpeciesEditForm = (species) => {
           className="create-species"
         >
           Save
-        </button>
+        </button> */}
       </div>
     </form>
   );
