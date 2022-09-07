@@ -7,7 +7,7 @@ export const getLocations = () => {
 };
 
 export const createLocations = (location) => {
-  return fetch("http://localhost:8000/locations/new", {
+  return fetch("http://localhost:8000/locations", {
     method: "POST",
     headers: {
       Authorization: `Token ${localStorage.getItem("lu_token")}`,

@@ -30,7 +30,7 @@ export const Home = (spotting) => {
             <h2 className="welcoming-saying">around your neighborhood?</h2>
           </div>
           <div class="button-div">
-            <Link to={`/spottings/create`}>
+            <Link to={`/spottings/new`}>
               <button class="front-button" id="let-us-know">
                 Let Us Know!
               </button>
