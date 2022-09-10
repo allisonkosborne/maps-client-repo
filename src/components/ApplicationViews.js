@@ -19,39 +19,45 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         <Home />
       </Route>
+
       <Route exact path="/species">
         <SpeciesList />
       </Route>
-      <Route exact path="/species/:speciesId">
+      <Route exact path="/species/:speciesId(\d+)">
         <SpeciesDetails />
-      </Route>
-      <Route exact path="/species/:speciesId/edit">
-        <SpeciesEditForm />
-      </Route>
-      <Route exact path="/spottings/:spottingsId/edit">
-        <SpottingsEditForm />
-      </Route>
-      <Route exact path="/spottings/:spottingsId">
-        <SpottingsDetails />
-      </Route>
-      <Route exact path="/spottings">
-        <SpottingsList />
-      </Route>
-      <Route exact path="/locations">
-        <LocationsList />
-      </Route>
-      <Route exact path="/locations/:locationsId">
-        <LocationsDetails />
       </Route>
       <Route exact path="/species/new">
         <SpeciesForm />
       </Route>
-      <Route exact path="/locations/new">
-        <LocationsForm />
+      <Route exact path="/species/:speciesId(\d+)/edit">
+        <SpeciesEditForm />
       </Route>
+
       <Route exact path="/spottings/new">
         <SpottingsForm />
       </Route>
+      <Route exact path="/spottings">
+        <SpottingsList />
+      </Route>
+      <Route exact path="/spottings/:spottingsId(\d+)">
+        <SpottingsDetails />
+      </Route>
+      <Route exact path="/spottings/:spottingsId(\d+)/edit">
+        <SpottingsEditForm />
+      </Route>
+
+      <Route exact path="/locations/new">
+        <LocationsForm />
+      </Route>
+      <Route exact path="/locations">
+        <LocationsList />
+      </Route>
+      <Route exact path="/locations/:locationsId(\d+)">
+        <LocationsDetails />
+      </Route>
+      {/* <Route exact path="/locations/:locationsId/edit">
+        <LocationEditForm />
+      </Route> */}
     </>
   );
 };

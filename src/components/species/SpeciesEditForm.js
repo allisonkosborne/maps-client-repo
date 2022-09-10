@@ -26,8 +26,9 @@ export const SpeciesEditForm = (species) => {
   const history = useHistory();
 
   const handleFieldChange = (evt) => {
-    const stateToChange = { ...species };
-    stateToChange[evt.target.id] = evt.target.value;
+    // console.log(evt);
+    const stateToChange = { ...currentSpecies };
+    stateToChange[evt.target.name] = evt.target.value;
     setCurrentSpecies(stateToChange);
   };
 
@@ -37,12 +38,16 @@ export const SpeciesEditForm = (species) => {
 
     const editedSpecies = {
       id: speciesId,
-      name: species.name,
-      food: species.food,
+      name: currentSpecies.name,
+      food: currentSpecies.food,
     };
+    //look at species vs currentSpecies and what they are being use for
 
-    updateSpecies(editedSpecies).then(() => history("/species"));
+    updateSpecies(editedSpecies.id, editedSpecies).then(() =>
+      history.push("/species")
+    );
   };
+  //Pay attention to what is being passed in!!!
 
   useEffect(() => {
     getSpeciesById(speciesId).then((species) => {
@@ -53,7 +58,7 @@ export const SpeciesEditForm = (species) => {
 
   return (
     <form className="speciesForm">
-      <h2 className="speciesForm__title">Register New Species</h2>
+      <h2 className="speciesForm__title">Edit Species</h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="name" className="species-name">
