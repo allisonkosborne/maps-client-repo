@@ -6,6 +6,7 @@ import { SpottingsList } from "./spottings/SpottingsList";
 import { SpottingsDetails } from "./spottings/SpottingsDetails";
 import { LocationsDetails } from "./locations/LocationsDetails";
 import { LocationsList } from "./locations/LocationsList";
+import { LocationsEditForm } from "./locations/LocationsEditForm";
 import { Home } from "../Home";
 import { SpeciesForm } from "./species/SpeciesForm";
 import { SpeciesEditForm } from "./species/SpeciesEditForm";
@@ -56,7 +57,7 @@ export const ApplicationViews = () => {
         <LocationsDetails />
       </Route>
       <Route exact path="/locations/:locationsId(\d+)/edit">
-        <LocationEditForm />
+        <LocationsEditForm />
       </Route>
     </>
   );

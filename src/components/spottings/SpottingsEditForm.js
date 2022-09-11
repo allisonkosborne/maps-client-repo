@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { createSpottings, getSpottingsById } from "./SpottingsManager.js";
+import { updateSpottings, getSpottingsById } from "./SpottingsManager.js";
 import "./SpottingsForm.css";
 
 export const SpottingsEditForm = (spottings) => {
@@ -101,7 +101,7 @@ export const SpottingsEditForm = (spottings) => {
             };
 
             // Send POST request to your API
-            createSpottings(spottings).then(() => history.push("/spottings"));
+            updateSpottings(spottings).then(() => history.push("/spottings"));
           }}
           className="create-spottings"
         >
