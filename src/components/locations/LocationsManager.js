@@ -24,3 +24,23 @@ export const getLocationById = (locationId) => {
     },
   }).then((res) => res.json());
 };
+
+export const updateLocations = (id, locations) => {
+  return fetch(`http://localhost:8000/locations/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("lu_token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(locations),
+  });
+};
+
+export const deleteLocations = (locationsId) => {
+  return fetch(`http://localhost:8000/locations/${locationsId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    },
+  });
+};

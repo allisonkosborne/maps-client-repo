@@ -35,3 +35,12 @@ const updateSpottings = (id, spottings) => {
     body: JSON.stringify(spottings),
   });
 };
+
+export const deleteSpottings = (spottingsId) => {
+  return fetch(`http://localhost:8000/spottings/${spottingsId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    },
+  });
+};

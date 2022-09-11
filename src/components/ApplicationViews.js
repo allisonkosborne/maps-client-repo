@@ -55,9 +55,9 @@ export const ApplicationViews = () => {
       <Route exact path="/locations/:locationsId(\d+)">
         <LocationsDetails />
       </Route>
-      {/* <Route exact path="/locations/:locationsId/edit">
+      <Route exact path="/locations/:locationsId(\d+)/edit">
         <LocationEditForm />
-      </Route> */}
+      </Route>
     </>
   );
 };

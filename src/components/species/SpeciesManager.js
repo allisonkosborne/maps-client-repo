@@ -35,3 +35,12 @@ export const updateSpecies = (id, species) => {
     body: JSON.stringify(species),
   });
 };
+
+export const deleteSpecies = (speciesId) => {
+  return fetch(`http://localhost:8000/species/${speciesId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    },
+  });
+};
