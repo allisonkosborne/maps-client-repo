@@ -56,7 +56,7 @@ export const SpottingsForm = () => {
             required
             autoFocus
             className="form-control"
-            value={currentSpotting.food}
+            value={currentSpotting.date}
             onChange={changeSpottingsState}
           />
         </div>
@@ -76,6 +76,21 @@ export const SpottingsForm = () => {
           />
         </div>
       </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="time">Location: </label>
+          <input
+            type="location"
+            name="location"
+            required
+            autoFocus
+            className="form-control"
+            value={currentSpotting.location}
+            onChange={changeSpottingsState}
+          />
+        </div>
+      </fieldset>
+
       <div className="button-div">
         <button
           type="submit"

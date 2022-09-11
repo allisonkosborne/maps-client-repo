@@ -22,16 +22,16 @@ export const ApplicationViews = () => {
       <Route exact path="/species">
         <SpeciesList />
       </Route>
-      <Route exact path="/species/:speciesId">
+      <Route exact path="/species/:speciesId(\d+)">
         <SpeciesDetails />
       </Route>
-      <Route exact path="/species/:speciesId/edit">
+      <Route exact path="/species/:speciesId(\d+)/edit">
         <SpeciesEditForm />
       </Route>
-      <Route exact path="/spottings/:spottingsId/edit">
+      <Route exact path="/spottings/:spottingsId(\d+)/edit">
         <SpottingsEditForm />
       </Route>
-      <Route exact path="/spottings/:spottingsId">
+      <Route exact path="/spottings/:spottingsId(\d+)">
         <SpottingsDetails />
       </Route>
       <Route exact path="/spottings">
@@ -40,7 +40,7 @@ export const ApplicationViews = () => {
       <Route exact path="/locations">
         <LocationsList />
       </Route>
-      <Route exact path="/locations/:locationsId">
+      <Route exact path="/locations/:locationsId(\d+)">
         <LocationsDetails />
       </Route>
       <Route exact path="/species/new">
