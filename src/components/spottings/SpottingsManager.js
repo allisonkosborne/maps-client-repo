@@ -25,7 +25,7 @@ export const getSpottingsById = (spottingsId) => {
   }).then((res) => res.json());
 };
 
-const updateSpottings = (id, spottings) => {
+export const updateSpottings = (id, spottings) => {
   return fetch(`http://localhost:8000/spottings/${id}`, {
     method: "PUT",
     headers: {
@@ -34,4 +34,29 @@ const updateSpottings = (id, spottings) => {
     },
     body: JSON.stringify(spottings),
   });
+};
+
+export const deleteSpottings = (spottingsId) => {
+  return fetch(`http://localhost:8000/spottings/${spottingsId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("token")}`,
+    },
+  });
+};
+
+export const getSpeciesForSpForm = () => {
+  return fetch(`http://localhost:8000/spottings`, {
+    headers: {
+      Authorization: `Token ${localStorage.getItem("lu_token")}`,
+    },
+  }).then((res) => res.json());
+};
+
+export const getLocationsForSpForm = () => {
+  return fetch(`http://localhost:8000/spottings`, {
+    headers: {
+      Authorization: `Token ${localStorage.getItem("lu_token")}`,
+    },
+  }).then((res) => res.json());
 };

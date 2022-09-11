@@ -6,6 +6,7 @@ import { SpottingsList } from "./spottings/SpottingsList";
 import { SpottingsDetails } from "./spottings/SpottingsDetails";
 import { LocationsDetails } from "./locations/LocationsDetails";
 import { LocationsList } from "./locations/LocationsList";
+import { LocationsEditForm } from "./locations/LocationsEditForm";
 import { Home } from "../Home";
 import { SpeciesForm } from "./species/SpeciesForm";
 import { SpeciesEditForm } from "./species/SpeciesEditForm";
@@ -19,6 +20,10 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         <Home />
       </Route>
+      //Species stuff
+      <Route exact path="/species/new">
+        <SpeciesForm />
+      </Route>
       <Route exact path="/species">
         <SpeciesList />
       </Route>
@@ -28,14 +33,22 @@ export const ApplicationViews = () => {
       <Route exact path="/species/:speciesId(\d+)/edit">
         <SpeciesEditForm />
       </Route>
-      <Route exact path="/spottings/:spottingsId(\d+)/edit">
-        <SpottingsEditForm />
+      //Spotting stuff
+      <Route exact path="/spottings/new">
+        <SpottingsForm />
+      </Route>
+      <Route exact path="/spottings">
+        <SpottingsList />
       </Route>
       <Route exact path="/spottings/:spottingsId(\d+)">
         <SpottingsDetails />
       </Route>
-      <Route exact path="/spottings">
-        <SpottingsList />
+      <Route exact path="/spottings/:spottingsId(\d+)/edit">
+        <SpottingsEditForm />
+      </Route>
+      //Location Stuff
+      <Route exact path="/locations/new">
+        <LocationsForm />
       </Route>
       <Route exact path="/locations">
         <LocationsList />
@@ -43,14 +56,8 @@ export const ApplicationViews = () => {
       <Route exact path="/locations/:locationsId(\d+)">
         <LocationsDetails />
       </Route>
-      <Route exact path="/species/new">
-        <SpeciesForm />
-      </Route>
-      <Route exact path="/locations/new">
-        <LocationsForm />
-      </Route>
-      <Route exact path="/spottings/new">
-        <SpottingsForm />
+      <Route exact path="/locations/:locationsId(\d+)/edit">
+        <LocationsEditForm />
       </Route>
     </>
   );
