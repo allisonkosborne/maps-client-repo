@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getSpeciesById } from "./SpeciesManager";
+import { deleteSpecies, getSpeciesById } from "./SpeciesManager";
 import "./Species.css";
 
-export const SpeciesDetails = (handleDeleteSpecies) => {
+export const SpeciesDetails = () => {
   const params = useParams();
   const [speciesId, setSpeciesId] = useState(parseInt(params.speciesId));
   const [species, setSpecies] = useState({});
@@ -15,6 +15,10 @@ export const SpeciesDetails = (handleDeleteSpecies) => {
       setSpecies(species);
     });
   }, []);
+
+  const handleDeleteSpecies = (speciesId) => {
+    deleteSpecies(speciesId).then(() => window.location.reload());
+  };
 
   return (
     <div className="main">

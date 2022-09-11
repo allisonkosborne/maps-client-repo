@@ -23,6 +23,7 @@ export const SpeciesForm = () => {
   // }, []);
 
   const changeSpeciesState = (domEvent) => {
+    // console.log(domEvent);
     let newSpecies = { ...currentSpecies };
     let newValue = domEvent.target.value;
     newSpecies[domEvent.target.name] = newValue;

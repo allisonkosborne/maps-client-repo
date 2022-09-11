@@ -13,8 +13,11 @@ export const SpottingsForm = () => {
         provide some default values.
     */
   const [currentSpotting, setCurrentSpotting] = useState({
-    id: 1,
-    name: "",
+    // id: 1,
+    species: "",
+    date: "",
+    time: "",
+    location: "",
     // food: "",
   });
 
@@ -37,11 +40,11 @@ export const SpottingsForm = () => {
           <label htmlFor="name">Species: </label>
           <input
             type="text"
-            name="name"
+            name="species"
             required
             autoFocus
             className="form-control"
-            value={currentSpotting.name}
+            value={currentSpotting.species}
             onChange={changeSpottingsState}
           />
         </div>
@@ -56,7 +59,7 @@ export const SpottingsForm = () => {
             required
             autoFocus
             className="form-control"
-            value={currentSpotting.food}
+            value={currentSpotting.date}
             onChange={changeSpottingsState}
           />
         </div>
@@ -76,6 +79,21 @@ export const SpottingsForm = () => {
           />
         </div>
       </fieldset>
+
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="time">Location: </label>
+          <input
+            type="location"
+            name="location"
+            required
+            autoFocus
+            className="form-control"
+            value={currentSpotting.location}
+            onChange={changeSpottingsState}
+          />
+        </div>
+      </fieldset>
       <div className="button-div">
         <button
           type="submit"
@@ -84,8 +102,10 @@ export const SpottingsForm = () => {
             evt.preventDefault();
 
             const spottings = {
+              species: currentSpotting.species,
               date: currentSpotting.date,
               time: currentSpotting.time,
+              location: currentSpotting.location,
             };
 
             // Send POST request to your API
