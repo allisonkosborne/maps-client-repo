@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import {
   createSpecies,
-  getByLocationId,
+  getLocationById,
   updateLocations,
 } from "./LocationsManager.js";
 import "./LocationsForm.css";
@@ -36,7 +36,7 @@ export const LocationsEditForm = (locations) => {
     setIsLoading(true);
 
     const editedLocation = {
-      id: speciesId,
+      id: locationId,
       name: currentLocation.name,
     };
     //look at species vs currentSpecies and what they are being use for

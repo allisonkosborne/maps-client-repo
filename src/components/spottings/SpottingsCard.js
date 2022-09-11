@@ -12,6 +12,7 @@ export const SpottingsCard = ({ spottings, locations }) => {
         {/* <img className="species-card-img" src={species.img_url} /> */}
       </div>
       <div className="paragraph-card-info">
+        {/* <p className="spottings-card-species">{spottings.species}</p> */}
         <p className="spottings-card-date">{spottings.date}</p>
         <p className="spottings-card-time">{spottings.time}</p>
         {/* <p className="spottings-card-location">{locations.name}</p> */}
