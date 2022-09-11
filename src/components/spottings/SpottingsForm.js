@@ -5,8 +5,8 @@ import { createSpottings, getSpeciesForSpForm } from "./SpottingsManager.js";
 import "./SpottingsForm.css";
 
 export const SpottingsForm = () => {
-  const monsterUser = JSON.parse(window.sessionStorage.getItem("maps_user"));
-  const monsterUserId = monsterUser.id;
+  // const monsterUser = JSON.parse(window.sessionStorage.getItem("maps_user"));
+  // const monsterUserId = monsterUser.id;
   const history = useHistory();
   // const [gameTypes, setGameTypes] = useState([]);
 
@@ -16,27 +16,24 @@ export const SpottingsForm = () => {
         provide some default values.
     */
 
-  const [species, setSpecies] = useState([]);
-  const [speciesOfSpotting, setSpeciesOfSpotting] = useState([]);
+  const [speciesList, setSpeciesList] = useState([]);
+  const [chosenSpecies, setChosenSpecies] = useState(null);
 
   useEffect(() => {
-    getSpecies(monsterUserId).then(setSpecies);
-    getSpeciesForSpForm(monsterUserId, species.id).then((speciesOfSpotting) => {
-      setSpeciesOfSpotting(speciesOfSpotting);
-    });
+    getSpecies().then(setSpeciesList);
   }, []);
 
-  const handleSpeciesDropdown = (evt) => {
-    const spottingsId = evt.target.value;
-    const speciesId = species.id;
+  // const handleSpeciesDropdown = (evt) => {
+  //   const spottingsId = evt.target.value;
+  //   const speciesId = speciesList.id;
 
-    const speciesToSpotting = {
-      usersId: monsterUserId,
-      spottingsId: spottingsId,
-      speciesId: speciesOfSpotting,
-    };
-    getSpeciesForSpForm(speciesToSpotting);
-  };
+  //   const speciesToSpotting = {
+  //     usersId: monsterUserId,
+  //     spottingsId: spottingsId,
+  //     speciesId: speciesOfSpotting,
+  //   };
+  //   getSpeciesForSpForm(speciesToSpotting);
+  // };
 
   const [currentSpotting, setCurrentSpotting] = useState({
     // id: 1,
@@ -65,7 +62,7 @@ export const SpottingsForm = () => {
         <label htmlFor="speciesId" className="species_dropdown">
           {/* Collections */}
         </label>
-        <select
+        {/* <select
           className="species_dropdown"
           id="speciesId"
           onChange={handleSpeciesDropdown}
@@ -82,15 +79,15 @@ export const SpottingsForm = () => {
             </option>
             //Creates dropdown for user's collections
           ))}
-        </select>
-        <div className="species_names">
+        </select> */}
+        {/* <div className="species_names">
           <h3 className="collection_title">Species:</h3>
           <p>
             {speciesOfSpotting.map(
               (speciesOfSpotting) => speciesOfSpotting.species.name
             )}
           </p>
-        </div>
+        </div> */}
       </fieldset>
       {/* <fieldset>
         <div className="form-group">
@@ -136,7 +133,6 @@ export const SpottingsForm = () => {
           />
         </div>
       </fieldset>
-
       <fieldset>
         <div className="form-group">
           <label htmlFor="time">Location: </label>

@@ -42,7 +42,6 @@ export const SpeciesEditForm = (species) => {
       food: currentSpecies.food,
     };
     //look at species vs currentSpecies and what they are being use for
-
     updateSpecies(editedSpecies.id, editedSpecies).then(() =>
       history.push("/species")
     );

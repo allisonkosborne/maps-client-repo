@@ -20,20 +20,20 @@ export const ApplicationViews = () => {
       <Route exact path="/">
         <Home />
       </Route>
-
+      {/* Species Stuff */}
+      <Route exact path="/species/new">
+        <SpeciesForm />
+      </Route>
       <Route exact path="/species">
         <SpeciesList />
       </Route>
       <Route exact path="/species/:speciesId(\d+)">
         <SpeciesDetails />
       </Route>
-      <Route exact path="/species/new">
-        <SpeciesForm />
-      </Route>
       <Route exact path="/species/:speciesId(\d+)/edit">
         <SpeciesEditForm />
       </Route>
-
+      {/* Spottings Stuff */}
       <Route exact path="/spottings/new">
         <SpottingsForm />
       </Route>
@@ -46,7 +46,7 @@ export const ApplicationViews = () => {
       <Route exact path="/spottings/:spottingsId(\d+)/edit">
         <SpottingsEditForm />
       </Route>
-
+      {/* Locations Stuff */}
       <Route exact path="/locations/new">
         <LocationsForm />
       </Route>
