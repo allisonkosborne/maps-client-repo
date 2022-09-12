@@ -17,12 +17,15 @@ export const SpottingsDetails = ({ locations, handleDeleteSpottings }) => {
   }, []);
   return (
     <div className="spottings">
-      <h3>{spottings.date}</h3>
+      <h3>Monster Spotting Details</h3>
       <div className="spottings-img-wrapper">
         {/* <img className="species-img" src={species.img_url} /> */}
       </div>
       <div className="spottings-info">
+        <p className="spottings-species">{spottings.species.name}</p>
+        <p className="spottings-date">{spottings.date}</p>
         <p className="spottings-time">{spottings.time}</p>
+        <p className="spottings">{spottings.location.name}</p>
         {/* <p className="spottings-location">{locations.name}</p> */}
         {/* <p className="spottings-time">{species.time}</p>
         <p className="spottings-time">{species.time}</p> */}
