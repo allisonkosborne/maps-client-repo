@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getSpottingsById } from "./SpottingsManager";
+import { Link, useParams, useHistory } from "react-router-dom";
+import { deleteSpottings, getSpottingsById } from "./SpottingsManager";
 import "./Spottings.css";
 
-export const SpottingsDetails = ({ locations, handleDeleteSpottings }) => {
+export const SpottingsDetails = ({ species }) => {
+  const history = useHistory();
   const params = useParams();
   const [spottingsId, setSpottingsId] = useState(parseInt(params.spottingsId));
   const [spottings, setSpottings] = useState({});
@@ -15,6 +16,11 @@ export const SpottingsDetails = ({ locations, handleDeleteSpottings }) => {
       setSpottings(spottings);
     });
   }, []);
+
+  const handleDeleteSpottings = (spottingsId) => {
+    deleteSpottings(spottingsId).then(() => history.pushState("/spottings"));
+  };
+
   return (
     <div className="spottings">
       <h3>Monster Spotting Details</h3>
@@ -22,10 +28,9 @@ export const SpottingsDetails = ({ locations, handleDeleteSpottings }) => {
         {/* <img className="species-img" src={species.img_url} /> */}
       </div>
       <div className="spottings-info">
-        <p className="spottings-species">{spottings.species.name}</p>
         <p className="spottings-date">{spottings.date}</p>
         <p className="spottings-time">{spottings.time}</p>
-        <p className="spottings">{spottings.location.name}</p>
+        {/* <p className="spottings">{spottings.location.name}</p> */}
         {/* <p className="spottings-location">{locations.name}</p> */}
         {/* <p className="spottings-time">{species.time}</p>
         <p className="spottings-time">{species.time}</p> */}
