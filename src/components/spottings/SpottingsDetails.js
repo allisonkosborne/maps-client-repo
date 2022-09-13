@@ -3,12 +3,11 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { deleteSpottings, getSpottingsById } from "./SpottingsManager";
 import "./Spottings.css";
 
-export const SpottingsDetails = ({ species }) => {
+export const SpottingsDetails = () => {
   const history = useHistory();
   const params = useParams();
   const [spottingsId, setSpottingsId] = useState(parseInt(params.spottingsId));
   const [spottings, setSpottings] = useState({});
-  // const [cocktailIngredients, setCocktailIngredients] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -18,7 +17,7 @@ export const SpottingsDetails = ({ species }) => {
   }, []);
 
   const handleDeleteSpottings = (spottingsId) => {
-    deleteSpottings(spottingsId).then(() => history.pushState("/spottings"));
+    deleteSpottings(spottingsId).then(() => history.push("/spottings"));
   };
 
   return (
@@ -28,9 +27,10 @@ export const SpottingsDetails = ({ species }) => {
         {/* <img className="species-img" src={species.img_url} /> */}
       </div>
       <div className="spottings-info">
+        {/* <p className="spottings-species">{spottings.species.name}</p> */}
         <p className="spottings-date">{spottings.date}</p>
         <p className="spottings-time">{spottings.time}</p>
-        {/* <p className="spottings">{spottings.location.name}</p> */}
+        {/* <p className="spottings-location">{spottings.location.name}</p> */}
         {/* <p className="spottings-location">{locations.name}</p> */}
         {/* <p className="spottings-time">{species.time}</p>
         <p className="spottings-time">{species.time}</p> */}

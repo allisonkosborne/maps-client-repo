@@ -8,7 +8,6 @@ export const SpeciesDetails = () => {
   const params = useParams();
   const [speciesId, setSpeciesId] = useState(parseInt(params.speciesId));
   const [species, setSpecies] = useState({});
-  // const [cocktailIngredients, setCocktailIngredients] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {

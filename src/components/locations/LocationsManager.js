@@ -6,14 +6,14 @@ export const getLocations = () => {
   }).then((response) => response.json());
 };
 
-export const createLocations = (location) => {
+export const createLocations = (newLocation) => {
   return fetch("http://localhost:8000/locations", {
     method: "POST",
     headers: {
       Authorization: `Token ${localStorage.getItem("lu_token")}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(location),
+    body: JSON.stringify(newLocation),
   }).then((res) => res.json());
 };
 

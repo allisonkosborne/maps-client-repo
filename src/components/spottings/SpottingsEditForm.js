@@ -36,8 +36,9 @@ export const SpottingsEditForm = (spottings) => {
     id: 1,
     date: "",
     time: "",
-    location_id: "",
-    monster_user_id: "",
+    location: "",
+    // location_id: "",
+    // monster_user_id: "",
     species: "",
   });
 
@@ -90,7 +91,7 @@ export const SpottingsEditForm = (spottings) => {
     };
 
     updateSpottings(editedSpottings.id, editedSpottings).then(() =>
-      history("/spottings")
+      history.push("/spottings")
     );
   };
 
@@ -128,11 +129,7 @@ export const SpottingsEditForm = (spottings) => {
         </select>
         {/* <div className="species_names">
           <h3 className="collection_title">Species:</h3>
-          <p>
-            {speciesList.map(
-              (speciesOfSpotting) => speciesOfSpotting.species.name
-            )}
-          </p>
+          <p>{speciesList.map((chosenSpecies) => chosenSpecies.name)}</p>
         </div> */}
       </fieldset>
 

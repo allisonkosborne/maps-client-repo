@@ -7,27 +7,27 @@ export const NavBar = () => {
   return (
     <div className="navbar">
       <div className="navbar__item">
-        <img src="favicon.ico"></img>
+        {/* <img src="favicon.ico"></img> */}
         <Link className="nav-link" to="/" id="middle">
-          Home
+          ~Home
         </Link>
       </div>
       <div className="navbar__item">
-        <img src="tentacles.ico"></img>
+        {/* <img src="tentacles.ico"></img> */}
         <Link className="nav-link" to="/species" id="middle">
-          Species
+          ~Species~
         </Link>
       </div>
       <div className="navbar__item">
-        <img src="maps.ico"></img>
+        {/* <img src="maps.ico"></img> */}
         <Link className="nav-link" to="/spottings" id="middle">
-          Spottings
+          Spottings~
         </Link>
       </div>
       <div className="navbar__item">
-        <img src="planets.ico"></img>
+        {/* <img src="planets.ico"></img> */}
         <Link className="nav-link" to="/locations" id="middle">
-          Locations
+          Locations~
         </Link>
       </div>
       {localStorage.getItem("lu_token") !== null ? (
