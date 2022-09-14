@@ -10,7 +10,7 @@ import {
 import "./SpottingsForm.css";
 import { getSpecies } from "../species/SpeciesManager.js";
 
-export const SpottingsEditForm = (spottings) => {
+export const SpottingsEditForm = (spottings, species, location) => {
   // const [gameTypes, setGameTypes] = useState([]);
 
   /*
@@ -19,17 +19,26 @@ export const SpottingsEditForm = (spottings) => {
         provide some default values.
     */
   const [speciesList, setSpeciesList] = useState([]);
-  const [chosenSpecies, setChosenSpecies] = useState(null);
+  const [chosenSpecies, setChosenSpecies] = useState([]);
 
   const [locationList, setLocationList] = useState([]);
-  const [chosenLocation, setChosenLocation] = useState(null);
+  const [chosenLocation, setChosenLocation] = useState([]);
+
+  const [spottingSpeciesId, setSpottingSpeciesId] = useState([]);
+  const [spottingLocationId, setSpottingLocationId] = useState([]);
 
   useEffect(() => {
     getSpecies().then(setSpeciesList);
+    getSpeciesForSpForm(species).then((chosenSpecies) => {
+      setChosenSpecies(chosenSpecies);
+    });
   }, []);
 
   useEffect(() => {
     getLocations().then(setLocationList);
+    getLocationsForSpForm(location).then((chosenLocation) => {
+      setChosenLocation(chosenLocation);
+    });
   }, []);
 
   const [currentSpottings, setCurrentSpottings] = useState({
@@ -45,6 +54,7 @@ export const SpottingsEditForm = (spottings) => {
   const handleSpeciesDropdown = (evt) => {
     const spottingsId = evt.target.value;
     const speciesId = speciesList.id;
+    const spottingSpeciesId = spottingSpeciesId.id;
 
     const addSpeciesToSpotting = {
       // usersId: monsterUserId,
@@ -57,6 +67,7 @@ export const SpottingsEditForm = (spottings) => {
   const handleLocationDropdown = (evt) => {
     const spottingsId = evt.target.value;
     const locationId = locationList.id;
+    const spottingLocationId = spottingLocationId.id;
 
     const addLocationToSpotting = {
       // usersId: monsterUserId,
@@ -97,6 +108,7 @@ export const SpottingsEditForm = (spottings) => {
 
   useEffect(() => {
     getSpottingsById(spottingsId).then((spottings) => {
+      console.log(spottings);
       setCurrentSpottings(spottings);
       setIsLoading(false);
     });
@@ -113,7 +125,7 @@ export const SpottingsEditForm = (spottings) => {
           className="species_dropdown"
           id="speciesId"
           onChange={handleSpeciesDropdown}
-          value={speciesList.id}
+          value={5}
           name="speciesId"
           required
         >
@@ -127,10 +139,10 @@ export const SpottingsEditForm = (spottings) => {
             //Creates dropdown for user's collections
           ))}
         </select>
-        {/* <div className="species_names">
-          <h3 className="collection_title">Species:</h3>
-          <p>{speciesList.map((chosenSpecies) => chosenSpecies.name)}</p>
-        </div> */}
+        <div className="species_names">
+          {/* <h3 className="collection_title">Species:</h3> */}
+          {/* <p>{speciesList.map((chosenSpecies) => chosenSpecies.name)}</p> */}
+        </div>
       </fieldset>
 
       <fieldset>
