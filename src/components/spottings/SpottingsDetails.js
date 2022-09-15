@@ -9,6 +9,10 @@ export const SpottingsDetails = () => {
   const [spottingsId, setSpottingsId] = useState(parseInt(params.spottingsId));
   const [spottings, setSpottings] = useState({});
 
+  const spottingDetailsSpecies = spottings.species.name;
+  const spottingDetailsLocation = spottings.location.name;
+  // console.log(spottingDetailsLocation);
+
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     getSpottingsById(spottingsId).then((spottings) => {
@@ -27,9 +31,10 @@ export const SpottingsDetails = () => {
         {/* <img className="species-img" src={species.img_url} /> */}
       </div>
       <div className="spottings-info">
-        {/* <p className="spottings-species">{spottings.species.name}</p> */}
+        <p className="spottings-species">{spottingDetailsSpecies}</p>
         <p className="spottings-date">{spottings.date}</p>
         <p className="spottings-time">{spottings.time}</p>
+        <p className="spottings-species">{spottingDetailsLocation}</p>
         {/* <p className="spottings-location">{spottings.location.name}</p> */}
         {/* <p className="spottings-location">{locations.name}</p> */}
         {/* <p className="spottings-time">{species.time}</p>

@@ -108,7 +108,7 @@ export const SpottingsEditForm = (spottings, species, location) => {
 
   useEffect(() => {
     getSpottingsById(spottingsId).then((spottings) => {
-      console.log(spottings);
+      // console.log(spottings);
       setCurrentSpottings(spottings);
       setIsLoading(false);
     });
@@ -125,7 +125,7 @@ export const SpottingsEditForm = (spottings, species, location) => {
           className="species_dropdown"
           id="speciesId"
           onChange={handleSpeciesDropdown}
-          value={5}
+          value={currentSpottings.species.id}
           name="speciesId"
           required
         >
@@ -186,7 +186,7 @@ export const SpottingsEditForm = (spottings, species, location) => {
           className="location_dropdown"
           id="locationId"
           onChange={handleLocationDropdown}
-          value={locationList.id}
+          value={currentSpottings.location.id}
           name="locationId"
           required
         >
