@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { updateSpottings, getSpottingsById } from "./SpottingsManager.js";
+import { getLocations } from "../locations/LocationsManager.js";
+import {
+  updateSpottings,
+  getSpottingsById,
+  getSpeciesForSpForm,
+  getLocationsForSpForm,
+} from "./SpottingsManager.js";
 import "./SpottingsForm.css";
+import { getSpecies } from "../species/SpeciesManager.js";
 
-export const SpottingsEditForm = (spottings) => {
+export const SpottingsEditForm = (spottings, species, location) => {
   // const [gameTypes, setGameTypes] = useState([]);
 
   /*
@@ -11,21 +18,55 @@ export const SpottingsEditForm = (spottings) => {
         the properties of this state variable, you need to
         provide some default values.
     */
+  const [speciesList, setSpeciesList] = useState([]);
+  const [chosenSpecies, setChosenSpecies] = useState("");
+
+  const [locationList, setLocationList] = useState([]);
+  const [chosenLocation, setChosenLocation] = useState("");
+
+  useEffect(() => {
+    getSpecies()
+      .then(setSpeciesList)
+      .then(() => {
+        getLocations().then(setLocationList);
+      });
+    // getSpeciesForSpForm(species).then((chosenSpecies) => {
+    //   setChosenSpecies(chosenSpecies);
+  }, []);
+
+  // useEffect(() => {
+  //   getLocations().then(setLocationList);
+  // getLocationsForSpForm(location).then((chosenLocation) => {
+  //   setChosenLocation(chosenLocation);
+  // }, []);
+
   const [currentSpottings, setCurrentSpottings] = useState({
     id: 1,
     date: "",
     time: "",
-    location_id: "",
-    monster_user_id: "",
+    location: "",
+    // location_id: "",
+    // monster_user_id: "",
     species: "",
   });
+
+  const handleSpeciesDropdown = (evt) => {
+    const speciesId = evt.target.value;
+    setChosenSpecies(speciesId);
+  };
+
+  const handleLocationDropdown = (evt) => {
+    const locationId = evt.target.value;
+    setChosenLocation(locationId);
+  };
+
   const [isLoading, setIsLoading] = useState(false);
   const { spottingsId } = useParams();
   const history = useHistory();
 
   const handleFieldChange = (evt) => {
-    const stateToChange = { ...spottings };
-    stateToChange[evt.target.id] = evt.target.value;
+    const stateToChange = { ...currentSpottings };
+    stateToChange[evt.target.name] = evt.target.value;
     setCurrentSpottings(stateToChange);
   };
 
@@ -35,26 +76,67 @@ export const SpottingsEditForm = (spottings) => {
 
     const editedSpottings = {
       id: spottingsId,
-      date: spottings.date,
-      time: spottings.time,
-      location_id: "",
-      monster_user_id: "",
-      species: "",
+      date: currentSpottings.date,
+      time: currentSpottings.time,
+      // location_id: "",
+      // monster_user_id: "",
+      location: parseInt(chosenLocation),
+      species: parseInt(chosenSpecies),
     };
 
-    updateExistingSpottings(editedSpottings).then(() => history("/spottings"));
+    updateSpottings(editedSpottings.id, editedSpottings).then(() =>
+      history.push("/spottings")
+    );
   };
 
   useEffect(() => {
     getSpottingsById(spottingsId).then((spottings) => {
+      // console.log(spottings);
       setCurrentSpottings(spottings);
+      // setChosenSpecies(currentSpottings.species.id);
       setIsLoading(false);
     });
   }, []);
 
+  useEffect(() => {
+    setChosenSpecies(currentSpottings.species.id);
+  }, [currentSpottings]);
+
+  useEffect(() => {
+    setChosenLocation(currentSpottings.location.id);
+  }, [currentSpottings]);
+
   return (
     <form className="spottingsForm">
       <h2 className="spottingsForm__title">Edit Spotting</h2>
+      <fieldset>
+        <label htmlFor="speciesId" className="species_dropdown">
+          {/* Collections */}
+        </label>
+        <select
+          className="species_dropdown"
+          id="speciesId"
+          onChange={handleSpeciesDropdown}
+          value={chosenSpecies}
+          name="speciesId"
+          required
+        >
+          <option value="0" className="add_to_spotting">
+            Edit Species
+          </option>
+          {speciesList.map((species) => (
+            <option key={species.id} value={species.id}>
+              {species.name}
+            </option>
+            //Creates dropdown for user's collections
+          ))}
+        </select>
+        <div className="species_names">
+          {/* <h3 className="collection_title">Species:</h3> */}
+          {/* <p>{speciesList.map((chosenSpecies) => chosenSpecies.name)}</p> */}
+        </div>
+      </fieldset>
+
       <fieldset>
         <div className="form-group">
           <label htmlFor="date" className="spottings-date">
@@ -88,8 +170,39 @@ export const SpottingsEditForm = (spottings) => {
           />
         </div>
       </fieldset>
+      <fieldset>
+        <label htmlFor="locationId" className="location_dropdown">
+          {/* Collections */}
+        </label>
+        <select
+          className="location_dropdown"
+          id="locationId"
+          onChange={handleLocationDropdown}
+          value={chosenLocation}
+          name="locationId"
+          required
+        >
+          <option value="0" className="add_to_spotting">
+            Edit Location
+          </option>
+          {locationList.map((location) => (
+            <option key={location.id} value={location.id}>
+              {location.name}
+            </option>
+            //Creates dropdown for user's collections
+          ))}
+        </select>
+        {/* <div className="species_names">
+          <h3 className="collection_title">Species:</h3>
+          <p>
+            {speciesList.map(
+              (speciesOfSpotting) => speciesOfSpotting.species.name
+            )}
+          </p>
+        </div> */}
+      </fieldset>
       <div className="button-div">
-        <button
+        {/* <button
           type="submit"
           onClick={(evt) => {
             // Prevent form from being submitted
@@ -104,6 +217,12 @@ export const SpottingsEditForm = (spottings) => {
             updateSpottings(spottings).then(() => history.push("/spottings"));
           }}
           className="create-spottings"
+        > */}
+        <button
+          type="button"
+          disabled={isLoading}
+          onClick={updateExistingSpottings}
+          className="btn btn-primary"
         >
           Save
         </button>

@@ -25,7 +25,6 @@
 } */
 h3 {
   font-size: 38px;
-  /* font-family: ; */
   color: rgb(39, 24, 2);
   display: flex;
   flex-direction: row;
@@ -55,7 +54,7 @@ h5 {
   font-size: 35px;
   border-style: solid;
   border-radius: 15px;
-  /* transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
   position: absolute;
   animation: animate 2.5s linear infinite;
 }
@@ -68,10 +67,10 @@ h5 {
 }
 
 .form-group {
-  /* display: flex;
+  display: flex;
   justify-content: left;
-  align-items: center; */
-  /* padding-top: 25px; */
+  align-items: center;
+  padding-top: 25px;
 }
 
 .species-name,

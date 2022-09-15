@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getSpottingsById } from "./SpottingsManager";
+import { Link, useParams, useHistory } from "react-router-dom";
+import { deleteSpottings, getSpottingsById } from "./SpottingsManager";
 import "./Spottings.css";
 
-export const SpottingsDetails = ({ locations, handleDeleteSpottings }) => {
+export const SpottingsDetails = () => {
+  const history = useHistory();
   const params = useParams();
   const [spottingsId, setSpottingsId] = useState(parseInt(params.spottingsId));
   const [spottings, setSpottings] = useState({});
-  // const [cocktailIngredients, setCocktailIngredients] = useState([]);
+
+  const spottingDetailsSpecies = spottings?.species?.name || "";
+  const spottingDetailsLocation = spottings?.location?.name || "";
+  //default value - pipe
+  //question marks - react - skips to default value
+
+  // console.log(spottingDetailsLocation);
 
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -15,14 +22,23 @@ export const SpottingsDetails = ({ locations, handleDeleteSpottings }) => {
       setSpottings(spottings);
     });
   }, []);
+
+  const handleDeleteSpottings = (spottingsId) => {
+    deleteSpottings(spottingsId).then(() => history.push("/spottings"));
+  };
+
   return (
     <div className="spottings">
-      <h3>{spottings.date}</h3>
+      <h3>Monster Spotting Details</h3>
       <div className="spottings-img-wrapper">
         {/* <img className="species-img" src={species.img_url} /> */}
       </div>
       <div className="spottings-info">
+        <p className="spottings-species">{spottingDetailsSpecies}</p>
+        <p className="spottings-date">{spottings.date}</p>
         <p className="spottings-time">{spottings.time}</p>
+        <p className="spottings-species">{spottingDetailsLocation}</p>
+        {/* <p className="spottings-location">{spottings.location.name}</p> */}
         {/* <p className="spottings-location">{locations.name}</p> */}
         {/* <p className="spottings-time">{species.time}</p>
         <p className="spottings-time">{species.time}</p> */}

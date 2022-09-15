@@ -70,7 +70,7 @@ export const SpeciesList = () => {
         </button>
       </div>
       <div class="protect">
-        <h5>***** Help us protect our local monsters! ****</h5>
+        {/* <h5>***** Help us protect our local monsters! ****</h5> */}
       </div>
     </>
   );

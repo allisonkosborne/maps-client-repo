@@ -37,13 +37,13 @@ export const Home = (spotting) => {
             </Link>
           </div>
           <div class="photo line">
-            <img src={window.location.origin + "public/favicon.ico"} />
+            {/* <img src={window.location.origin + "public/favicon.ico"} /> */}
             {/* <img src="public/favicon.ico" alt="icon" /> */}
           </div>
         </div>
         <p>{/* <PropsAndState yourName={users.name} /> */}</p>
         <div class="protect">
-          <h5>***** Help us protect our local monsters! ****</h5>
+          {/* <h5>***** Help us protect our local monsters! ****</h5> */}
         </div>
       </div>
     </>
