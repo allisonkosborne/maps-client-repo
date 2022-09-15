@@ -22,45 +22,45 @@ export const SpottingsForm = () => {
     */
 
   const [speciesList, setSpeciesList] = useState([]);
-  const [chosenSpecies, setChosenSpecies] = useState(null);
+  const [chosenSpecies, setChosenSpecies] = useState("");
 
   const [locationList, setLocationList] = useState([]);
-  const [chosenLocation, setChosenLocation] = useState(null);
+  const [chosenLocation, setChosenLocation] = useState("");
 
   useEffect(() => {
-    getSpecies().then(setSpeciesList);
-  }, []);
-
-  useEffect(() => {
-    getLocations().then(setLocationList);
+    getSpecies()
+      .then(setSpeciesList)
+      .then(() => {
+        getLocations().then(setLocationList);
+      });
   }, []);
 
   const handleSpeciesDropdown = (evt) => {
-    const spottingsId = evt.target.value;
-    const speciesId = speciesList.id;
+    const speciesId = evt.target.value;
+    // const speciesId = speciesList.id;
 
-    const addSpeciesToSpotting = {
-      // usersId: monsterUserId,
-      spottingsId: spottingsId,
-      speciesId: speciesId,
-    };
-    getSpeciesForSpForm(addSpeciesToSpotting);
+    // const addSpeciesToSpotting = {
+    //   // usersId: monsterUserId,
+    //   spottingsId: spottingsId,
+    //   speciesId: speciesId,
+    // };
+    setChosenSpecies(speciesId);
   };
 
   const handleLocationDropdown = (evt) => {
-    const spottingsId = evt.target.value;
-    const locationId = locationList.id;
+    const locationId = evt.target.value;
+    // const locationId = locationList.id;
 
-    const addLocationToSpotting = {
-      // usersId: monsterUserId,
-      spottingsId: spottingsId,
-      locationId: locationId,
-    };
-    getLocationsForSpForm(addLocationToSpotting);
+    // const addLocationToSpotting = {
+    //   // usersId: monsterUserId,
+    //   spottingsId: spottingsId,
+    //   locationId: locationId,
+    // };
+    setChosenLocation(locationId);
   };
 
   const [currentSpotting, setCurrentSpotting] = useState({
-    // id: 1,
+    id: 1,
     species: "",
     date: "",
     time: "",
@@ -79,6 +79,14 @@ export const SpottingsForm = () => {
     setCurrentSpotting(newSpottings);
   };
 
+  useEffect(() => {
+    setChosenSpecies(currentSpotting.species.id);
+  }, [currentSpotting]);
+
+  useEffect(() => {
+    setChosenLocation(currentSpotting.location.id);
+  }, [currentSpotting]);
+
   return (
     <form className="spottingsForm" id="#spotting-register">
       <h2 className="spottingsForm__title">Register New Spotting</h2>
@@ -90,7 +98,7 @@ export const SpottingsForm = () => {
           className="species_dropdown"
           id="speciesId"
           onChange={handleSpeciesDropdown}
-          value={speciesList.id}
+          value={chosenSpecies}
           name="speciesId"
           required
         >
@@ -165,7 +173,7 @@ export const SpottingsForm = () => {
           className="location_dropdown"
           id="locationId"
           onChange={handleLocationDropdown}
-          value={locationList.id}
+          value={chosenLocation}
           name="locationId"
           required
         >
@@ -210,10 +218,10 @@ export const SpottingsForm = () => {
             evt.preventDefault();
 
             const spottings = {
-              species: currentSpotting.species,
+              species: parseInt(chosenSpecies),
               date: currentSpotting.date,
               time: currentSpotting.time,
-              location: currentSpotting.location,
+              location: parseInt(chosenLocation),
             };
 
             // Send POST request to your API
