@@ -19,27 +19,26 @@ export const SpottingsEditForm = (spottings, species, location) => {
         provide some default values.
     */
   const [speciesList, setSpeciesList] = useState([]);
-  const [chosenSpecies, setChosenSpecies] = useState([]);
+  const [chosenSpecies, setChosenSpecies] = useState("");
 
   const [locationList, setLocationList] = useState([]);
-  const [chosenLocation, setChosenLocation] = useState([]);
-
-  const [spottingSpeciesId, setSpottingSpeciesId] = useState([]);
-  const [spottingLocationId, setSpottingLocationId] = useState([]);
+  const [chosenLocation, setChosenLocation] = useState("");
 
   useEffect(() => {
-    getSpecies().then(setSpeciesList);
-    getSpeciesForSpForm(species).then((chosenSpecies) => {
-      setChosenSpecies(chosenSpecies);
-    });
+    getSpecies()
+      .then(setSpeciesList)
+      .then(() => {
+        getLocations().then(setLocationList);
+      });
+    // getSpeciesForSpForm(species).then((chosenSpecies) => {
+    //   setChosenSpecies(chosenSpecies);
   }, []);
 
-  useEffect(() => {
-    getLocations().then(setLocationList);
-    getLocationsForSpForm(location).then((chosenLocation) => {
-      setChosenLocation(chosenLocation);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getLocations().then(setLocationList);
+  // getLocationsForSpForm(location).then((chosenLocation) => {
+  //   setChosenLocation(chosenLocation);
+  // }, []);
 
   const [currentSpottings, setCurrentSpottings] = useState({
     id: 1,
@@ -52,29 +51,13 @@ export const SpottingsEditForm = (spottings, species, location) => {
   });
 
   const handleSpeciesDropdown = (evt) => {
-    const spottingsId = evt.target.value;
-    const speciesId = speciesList.id;
-    const spottingSpeciesId = spottingSpeciesId.id;
-
-    const addSpeciesToSpotting = {
-      // usersId: monsterUserId,
-      spottingsId: spottingsId,
-      speciesId: speciesId,
-    };
-    getSpeciesForSpForm(addSpeciesToSpotting);
+    const speciesId = evt.target.value;
+    setChosenSpecies(speciesId);
   };
 
   const handleLocationDropdown = (evt) => {
-    const spottingsId = evt.target.value;
-    const locationId = locationList.id;
-    const spottingLocationId = spottingLocationId.id;
-
-    const addLocationToSpotting = {
-      // usersId: monsterUserId,
-      spottingsId: spottingsId,
-      locationId: locationId,
-    };
-    getLocationsForSpForm(addLocationToSpotting);
+    const locationId = evt.target.value;
+    setChosenLocation(locationId);
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -97,8 +80,8 @@ export const SpottingsEditForm = (spottings, species, location) => {
       time: currentSpottings.time,
       // location_id: "",
       // monster_user_id: "",
-      location: currentSpottings.location.name,
-      species: currentSpottings.species.name,
+      location: parseInt(chosenLocation),
+      species: parseInt(chosenSpecies),
     };
 
     updateSpottings(editedSpottings.id, editedSpottings).then(() =>
@@ -110,9 +93,18 @@ export const SpottingsEditForm = (spottings, species, location) => {
     getSpottingsById(spottingsId).then((spottings) => {
       // console.log(spottings);
       setCurrentSpottings(spottings);
+      // setChosenSpecies(currentSpottings.species.id);
       setIsLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    setChosenSpecies(currentSpottings.species.id);
+  }, [currentSpottings]);
+
+  useEffect(() => {
+    setChosenLocation(currentSpottings.location.id);
+  }, [currentSpottings]);
 
   return (
     <form className="spottingsForm">
@@ -125,7 +117,7 @@ export const SpottingsEditForm = (spottings, species, location) => {
           className="species_dropdown"
           id="speciesId"
           onChange={handleSpeciesDropdown}
-          value={currentSpottings.species.id}
+          value={chosenSpecies}
           name="speciesId"
           required
         >
@@ -186,7 +178,7 @@ export const SpottingsEditForm = (spottings, species, location) => {
           className="location_dropdown"
           id="locationId"
           onChange={handleLocationDropdown}
-          value={currentSpottings.location.id}
+          value={chosenLocation}
           name="locationId"
           required
         >

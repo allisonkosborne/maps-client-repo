@@ -9,8 +9,11 @@ export const SpottingsDetails = () => {
   const [spottingsId, setSpottingsId] = useState(parseInt(params.spottingsId));
   const [spottings, setSpottings] = useState({});
 
-  const spottingDetailsSpecies = spottings.species.name;
-  const spottingDetailsLocation = spottings.location.name;
+  const spottingDetailsSpecies = spottings?.species?.name || "";
+  const spottingDetailsLocation = spottings?.location?.name || "";
+  //default value - pipe
+  //question marks - react - skips to default value
+
   // console.log(spottingDetailsLocation);
 
   const [isLoading, setIsLoading] = useState(true);
