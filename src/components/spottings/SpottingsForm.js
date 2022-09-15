@@ -79,14 +79,6 @@ export const SpottingsForm = () => {
     setCurrentSpotting(newSpottings);
   };
 
-  useEffect(() => {
-    setChosenSpecies(currentSpotting.species.id);
-  }, [currentSpotting]);
-
-  useEffect(() => {
-    setChosenLocation(currentSpotting.location.id);
-  }, [currentSpotting]);
-
   return (
     <form className="spottingsForm" id="#spotting-register">
       <h2 className="spottingsForm__title">Register New Spotting</h2>
@@ -98,7 +90,7 @@ export const SpottingsForm = () => {
           className="species_dropdown"
           id="speciesId"
           onChange={handleSpeciesDropdown}
-          value={chosenSpecies}
+          // value={chosenSpecies}
           name="speciesId"
           required
         >
@@ -225,6 +217,7 @@ export const SpottingsForm = () => {
             };
 
             // Send POST request to your API
+            console.log(spottings);
             createSpottings(spottings).then(() => history.push("/spottings"));
           }}
           className="create-spottings"
